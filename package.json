@@ -1,0 +1,21 @@
+{
+  "name": "acervo-digital-jlsd",
+  "version": "1.0.0",
+  "description": "Projeto de acervo digital de fotos",
+  "main": "js/server.js",
+  "scripts": {
+    "start": "node js/server.js",
+    "build": "node js/server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JoaoLuciano1429/acervo-digital-jlsd.github.io.git"
+  },
+  "keywords": [],
+  "author": "JoaoLuciano1429",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/JoaoLuciano1429/acervo-digital-jlsd.github.io/issues"
+  },
+  "homepage": "https://github.com/JoaoLuciano1429/acervo-digital-jlsd.github.io#readme"
+}
