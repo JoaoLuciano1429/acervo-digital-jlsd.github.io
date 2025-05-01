@@ -17,5 +17,8 @@
   "bugs": {
     "url": "https://github.com/JoaoLuciano1429/acervo-digital-jlsd.github.io/issues"
   },
-  "homepage": "https://github.com/JoaoLuciano1429/acervo-digital-jlsd.github.io#readme"
+  "homepage": "https://github.com/JoaoLuciano1429/acervo-digital-jlsd.github.io#readme",
+  "engines": {
+    "node": ">=14.x"
+  }
 }
