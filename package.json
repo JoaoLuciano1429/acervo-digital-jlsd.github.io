@@ -5,7 +5,7 @@
   "main": "js/server.js",
   "scripts": {
     "start": "node js/server.js",
-    "build": "node js/server.js"
+    "build": "echo 'No build step required'"
   },
   "repository": {
     "type": "git",
