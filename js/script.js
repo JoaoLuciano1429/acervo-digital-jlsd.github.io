@@ -1,4 +1,4 @@
-const imgFolder = "img/photos/";
+const imgFolder = "https://acervo-digital-jlsd-github-io.onrender.com";
 const allowedImgFormats = [
   ".jpeg",
   ".jpg",
