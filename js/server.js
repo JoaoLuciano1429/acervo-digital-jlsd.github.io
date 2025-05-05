@@ -47,8 +47,14 @@ generateFilesJson();
 
 // Cria um servidor HTTP básico
 const PORT = process.env.PORT || 3000; // Porta definida pelo Render ou 3000 como fallback
+
 http
   .createServer((req, res) => {
+    // Configurar cabeçalhos CORS
+    res.setHeader("Access-Control-Allow-Origin", "*"); // Permitir todas as origens
+    res.setHeader("Access-Control-Allow-Methods", "GET, POST, OPTIONS");
+    res.setHeader("Access-Control-Allow-Headers", "Content-Type");
+
     res.writeHead(200, { "Content-Type": "text/plain" });
     res.end("Servidor rodando e arquivo files.json gerado!");
   })
