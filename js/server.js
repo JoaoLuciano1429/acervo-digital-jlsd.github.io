@@ -50,8 +50,29 @@ const PORT = process.env.PORT || 3000; // Porta definida pelo Render ou 3000 com
 
 http
   .createServer((req, res) => {
+    if (req.url === "/files.json") {
+      // Retorna o conteúdo do arquivo files.json
+      fs.readFile(outputFile, "utf8", (err, data) => {
+        if (err) {
+          res.writeHead(500, { "Content-Type": "application/json" });
+          res.end(
+            JSON.stringify({ error: "Erro ao ler o arquivo files.json" })
+          );
+        } else {
+          res.writeHead(200, { "Content-Type": "application/json" });
+          res.end(data);
+        }
+      });
+    } else {
+      // Resposta padrão para outras requisições
+      res.writeHead(404, { "Content-Type": "text/plain" });
+      res.end("Recurso não encontrado");
+    }
     // Configurar cabeçalhos CORS
-    res.setHeader("Access-Control-Allow-Origin", "*"); // Permitir todas as origens
+    res.setHeader(
+      "Access-Control-Allow-Origin",
+      "https://joaoluciano1429.github.io"
+    ); // Permitir apenas o domínio do GitHub Pages
     res.setHeader("Access-Control-Allow-Methods", "GET, POST, OPTIONS");
     res.setHeader("Access-Control-Allow-Headers", "Content-Type");
 
