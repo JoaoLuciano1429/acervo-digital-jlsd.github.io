@@ -58,6 +58,7 @@ http
           res.end(
             JSON.stringify({ error: "Erro ao ler o arquivo files.json" })
           );
+          return;
         } else {
           res.writeHead(200, { "Content-Type": "application/json" });
           res.end(data);
