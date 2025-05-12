@@ -2,10 +2,8 @@
   "name": "acervo-digital-jlsd",
   "version": "1.0.0",
   "description": "Projeto de acervo digital de fotos",
-  "main": "js/server.js",
   "scripts": {
-    "start": "node js/server.js",
-    "build": "echo 'No build step required'"
+    "generate": "node js/generateFilesJson.js"
   },
   "repository": {
     "type": "git",
@@ -17,8 +15,5 @@
   "bugs": {
     "url": "https://github.com/JoaoLuciano1429/acervo-digital-jlsd.github.io/issues"
   },
-  "homepage": "https://github.com/JoaoLuciano1429/acervo-digital-jlsd.github.io#readme",
-  "engines": {
-    "node": ">=14.x"
-  }
+  "homepage": "https://github.com/JoaoLuciano1429/acervo-digital-jlsd.github.io#readme"
 }

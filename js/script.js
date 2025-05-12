@@ -1,4 +1,4 @@
-const imgFolder = "https://acervo-digital-jlsd.onrender.com/";
+const imgFolder = "img/photos/";
 const allowedImgFormats = [
   ".jpeg",
   ".jpg",
@@ -12,7 +12,7 @@ const allowedImgFormats = [
 // Função para buscar imagens da pasta
 async function loadImages() {
   try {
-    // Simulação de uma API ou endpoint que retorna os arquivos da pasta
+    // Carrega o arquivo files.json localmente
     const response = await fetch(`${imgFolder}files.json`);
     const data = await response.json(); // 'data' é o objeto retornado
     const files = data.files; // Acessa a propriedade 'files' que contém o array
