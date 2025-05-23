@@ -18,6 +18,12 @@ async function loadImages() {
     const files = data.files; // Acessa a propriedade 'files' que contém o array
 
     const main = document.querySelector("main");
+    const photoModal = document.querySelector(".photoModal");
+    const modalImg = photoModal.querySelector("img");
+    const btnClose = photoModal.querySelector(".btn-close");
+
+    // Esconde o modal inicialmente
+    photoModal.classList.remove("active");
 
     files.forEach((file) => {
       const fileExtension = file.slice(file.lastIndexOf(".")).toLowerCase();
@@ -31,9 +37,34 @@ async function loadImages() {
         img.alt = file;
         figcaption.textContent = file.split(".")[0]; // Nome do arquivo sem extensão
 
+        // Evento para abrir o modal ao clicar na imagem
+        img.addEventListener("click", () => {
+          modalImg.src = img.src;
+          modalImg.alt = img.alt;
+          photoModal.classList.add("active");
+        });
+
         figure.appendChild(img);
         figure.appendChild(figcaption);
         main.appendChild(figure);
+      }
+    });
+
+    // Evento para fechar o modal
+    btnClose.addEventListener("click", () => {
+      photoModal.classList.remove("active");
+
+      modalImg.src = "";
+      modalImg.alt = "";
+    });
+
+    // Opcional: fechar o modal ao clicar fora da imagem
+    photoModal.addEventListener("click", (e) => {
+      if (e.target === photoModal) {
+        photoModal.classList.remove("active");
+
+        modalImg.src = "";
+        modalImg.alt = "";
       }
     });
   } catch (error) {

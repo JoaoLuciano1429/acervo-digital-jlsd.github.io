@@ -6,8 +6,8 @@
 }
 
 body {
-  width: 100vw;
-  height: 100vh;
+  min-width: 100vw;
+  min-height: 100vh;
   background-color: #ff7f50;
   display: flex;
   justify-content: center;
@@ -21,10 +21,14 @@ main {
   border: 4px groove #ad3a10;
   border-radius: 10px;
   display: flex;
-  justify-content: space-between;
-  align-items: center;
+  justify-content: center;
+  align-items: flex-start;
   flex-wrap: wrap;
-  overflow: scroll;
+  gap: 1em;
+  width: 95vw;
+  max-width: 1200px;
+  min-height: 40vh;
+  overflow-y: auto;
 }
 
 figure {
@@ -34,9 +38,110 @@ figure {
   align-items: center;
   flex-direction: column;
   gap: 2px;
+  width: 9em;
 }
 
 figure img {
-  width: 8em;
+  width: 100%;
+  max-width: 8em;
   height: auto;
+  cursor: pointer;
+  border-radius: 6px;
+  box-shadow: 0 2px 8px #0002;
+  transition: transform 0.2s;
+}
+
+figure img:hover {
+  transform: scale(1.05);
+}
+
+.photoModal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.85);
+  border-radius: 0;
+  display: none; /* Começa escondido */
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  z-index: 1000;
+  padding: 0;
+}
+
+.photoModal.active {
+  display: flex;
+}
+
+.photoModal__close {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  padding: 1em 2em 0.5em 0;
+  box-sizing: border-box;
+}
+
+.photoModal__close button.btn-close {
+  background-color: #555;
+  border: 2px ridge #333;
+  border-radius: 10px;
+  color: #ffffff;
+  padding: 8px 16px;
+  font-size: 1em;
+  cursor: pointer;
+}
+
+.photoModal img {
+  width: 90vw;
+  max-width: 600px;
+  max-height: 70vh;
+  height: auto;
+  border-radius: 10px;
+  box-shadow: 0 4px 24px #0008;
+  background: #fff;
+  object-fit: contain;
+}
+
+@media (max-width: 700px) {
+  main {
+    gap: 0.5em;
+    padding: 2px;
+  }
+  figure {
+    width: 45vw;
+    max-width: 160px;
+  }
+  figure img {
+    max-width: 90%;
+  }
+  .photoModal img {
+    max-width: 98vw;
+    max-height: 60vh;
+  }
+  .photoModal__close {
+    padding: 0.5em 1em 0.5em 0;
+  }
+}
+
+@media (max-width: 480px) {
+  main {
+    flex-direction: column;
+    align-items: center;
+    width: 100vw;
+    padding: 0;
+  }
+  figure {
+    width: 90vw;
+    max-width: 98vw;
+  }
+  .photoModal img {
+    max-width: 98vw;
+    max-height: 50vh;
+  }
+  .photoModal__close {
+    padding: 0.5em 0.5em 0.5em 0;
+  }
 }
